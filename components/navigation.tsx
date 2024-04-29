@@ -11,25 +11,32 @@ const Navigation = ({ session }: { session: Session | null }) => {
     router.push('/login');
   }
 
+  const user = session?.user?.email
+  
   return (
     <header>
-      <div className="flex items-center justify-between px-4 py-2 bg-white shadow-md">
-        <nav className="hidden md:flex space-x-4">
+      <div className="flex items-center w-full justify-between px-4 py-2 bg-white shadow-md">
+        <nav className="flex space-x-4">
           <div>
             <Link className="text-gray-600 hover:text-blue-600" href="/">
               Home
             </Link>
           </div>
           {session ? (
-            <div className="text-gray-600 hover:text-blue-600">
-              <form action="/auth/logout" method="post">
-                <button 
-                  type="submit"
-                >
-                  ログアウト
-                </button>
-              </form>
-            </div>
+            <>
+              <div className="text-gray-600 hover:text-blue-600">
+                <form action="/auth/logout" method="post">
+                  <button 
+                    type="submit"
+                  >
+                    ログアウト
+                  </button>
+                </form>
+              </div>
+              <div>
+                <p>{user}</p>
+              </div>
+            </>
           ) : (
             <>
               <div>
