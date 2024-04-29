@@ -1,4 +1,4 @@
-import { supabase } from "@/utils/supabase/supabase"
+import { supabaseClient } from "@/utils/supabase/supabase"
 import Task from "./task"
 import { Dispatch, SetStateAction, ReactElement } from "react"
 
@@ -7,7 +7,7 @@ export default async function getData(
 ) {
   const tmpTaskList: any = []
   try {
-    let { data: tasks, error } = await supabase
+    let { data: tasks, error } = await supabaseClient
       .from('tasks')
       .select('*')
     if (error) {

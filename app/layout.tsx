@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/sonner"
+import SupabaseListener from "@/components/supabaseListener"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -31,6 +32,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       > 
+        <div><SupabaseListener /></div>
         <main className="min-h-screen flex flex-col items-center">
           {children}
         </main>
